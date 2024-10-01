@@ -22,7 +22,7 @@ public class Transaccion {
          String lista = "";
          
          for (int i = 0; i < listaProductos.size(); i++) {
-             lista = lista + listaProductos.get(i).getNombre() + " -- " + listaProductos.get(i).getPrecio() + "\n";
+             lista = lista + listaProductos.get(i).getNombre() + " -- " + listaProductos.get(i).getPrecio() + " -- " + listaProductos.get(i).getCantidad()  + "\n";
          }
          
          return lista;

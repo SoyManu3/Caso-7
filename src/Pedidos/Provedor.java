@@ -11,6 +11,11 @@ package Pedidos;
 public class Provedor {
     private String nombre;
     private String domicilioBancario;
+
+    public Provedor(String nombre, String domicilioBancario) {
+        this.nombre = nombre;
+        this.domicilioBancario = domicilioBancario;
+    }
     
     
     

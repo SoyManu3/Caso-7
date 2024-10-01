@@ -6,48 +6,37 @@ import Productos.Producto;
 import Productos.Transaccion;
 
 public class Pedido extends Transaccion{
-    private int cantidad;
-    private Producto productos;
+    private  ArrayList<Producto> productos = new ArrayList<Producto>();
    
    
     
    
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public Producto getProducto() {
+    
+    public ArrayList<Producto> getProducto() {
         return productos;
     }
 
-    public void setProducto(Producto producto) {
-        this.productos = producto;
-    }
+   
     
     public float calcularPrecio() {
         return 0;
     }
+    
+    public void elegirCantidad(  Producto p, int cantidad){
+        productos.add(new Producto(p.getNombre(),p.getCodigo(),p.getPrecio(), cantidad, p.getProvedor()));
+    }
 
 
-    public void agregarProductos(ArrayList<Producto> listaProductos) {
-        boolean encontrado = false;
-
-        for (Producto producto : listaProductos) {
-            if (producto.getCodigo().equals(this.productos.getCodigo())) {
-                producto.setCantidad(producto.getCantidad() + this.cantidad);
-                encontrado = true;
+    public void agregarProductosInventario(ArrayList<Producto> listaProductos) {
+        
+        for (Producto producto : productos) {
+            for (Producto listaProducto : listaProductos) {
+                if (listaProducto.getCodigo().equals(producto.getCodigo())) {
+                
+                listaProducto.setCantidad(listaProducto.getCantidad() + producto.getCantidad());
                 break;  
             }
         }
-
-         
-        if (!encontrado) {
-            System.out.println("El producto no se maneja en tienda.");
-        }
-    }
-
 }
+
+ }}
