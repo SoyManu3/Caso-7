@@ -5,6 +5,7 @@
 package caso.pkg7;
 
 import Productos.Producto;
+import Pedidos.NotasEntrega;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +19,7 @@ public class Caso7 {
      */
     public static void main(String[] args) {
         ArrayList<Producto> inventario = new ArrayList<Producto>();
+        ArrayList<NotasEntrega> notas = new ArrayList<NotasEntrega>();
         
         System.out.println("Aqui va el menu");
        
