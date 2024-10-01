@@ -27,6 +27,10 @@ public class Pedido extends Transaccion{
     public void setProducto(Producto producto) {
         this.productos = producto;
     }
+    
+    public float calcularPrecio() {
+        return 0;
+    }
 
 
     public void agregarProductos(ArrayList<Producto> listaProductos) {
