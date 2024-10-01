@@ -1,7 +1,9 @@
 package Pedidos;
 
+import java.util.ArrayList;
+
 public class NotasEntrega {
-    private int notasEntrega;
+    private  ArrayList<Pedido> notasEntrega = new ArrayList<Pedido>();
     private float importeUnidad;
     private float importeTotal;
     private String banco;
@@ -9,7 +11,6 @@ public class NotasEntrega {
     
     
     public NotasEntrega(int notasEntrega, float importeUnidad, float importeTotal, String banco, String cuentaCorriente) {
-        this.notasEntrega = notasEntrega;
         this.importeUnidad = importeUnidad;
         this.importeTotal = importeTotal;
         this.banco = banco;
@@ -17,14 +18,6 @@ public class NotasEntrega {
     }
 
 
-    public int getNotasEntrega() {
-        return notasEntrega;
-    }
-
-
-    public void setNotasEntrega(int notasEntrega) {
-        this.notasEntrega = notasEntrega;
-    }
 
 
     public float getImporteUnidad() {
