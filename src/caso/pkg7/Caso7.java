@@ -96,6 +96,7 @@ public class Caso7 {
             System.out.println("2. Confirmar Peididos");
             System.out.println("3. Notas");
             System.out.println("4. Venta");
+            System.out.println("5. Salir");
             System.out.print("Elige una opción: ");
             option = scanner.nextInt();
 
@@ -177,11 +178,13 @@ public class Caso7 {
                     
                     ventas.get(ventas.size() - 1).DescuentoCantidad(inventario);
                     break;
+                case 5:
+                break;
 
                 default:
                     System.out.println("Opción inválida, por favor intenta de nuevo.");
             }
-        } while (option != 6);
+        } while (option != 5);
 
         scanner.close();
 
