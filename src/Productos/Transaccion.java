@@ -18,12 +18,15 @@ public class Transaccion {
          productosTransaccion.add(prod);
      }
      
-     public String toString(){
+     
+          @Override
+          public String toString(){
          String lista = "";
          
          for (int i = 0; i < productosTransaccion.size(); i++) {
              lista = lista + productosTransaccion.get(i).getNombre() + " -- " + productosTransaccion.get(i).getPrecio() + " -- " + productosTransaccion.get(i).getCantidad()  + "\n";
          }
+         
          
          return lista;
      }
@@ -32,9 +35,32 @@ public class Transaccion {
          float precio = 0;
          
          for (int i = 0; i < productosTransaccion.size(); i++) {
-             precio = precio + productosTransaccion.get(i).getPrecio();
+             precio = precio  + productosTransaccion.get(i).getPrecio()*productosTransaccion.get(i).getCantidad();
          }
          
          return precio;
      }
+     
+     public void elegirCantidad(  Producto p, int cantidad){
+        
+          boolean productoEncontrado = false;
+    
+
+    for (Producto producto : productosTransaccion) {
+        if (producto.getCodigo().equals(p.getCodigo())) {
+        
+            producto.setCantidad(cantidad);
+            productoEncontrado = true;
+            break;
+        }
+    }
+    
+    
+    if (!productoEncontrado) {
+        productosTransaccion.add(new Producto(p.getNombre(), p.getCodigo(), p.getPrecio(), cantidad, p.getProvedor()));
+        
+    } else {
+        System.out.println("Cantidad actualizada.");
+    }
+    }
 }

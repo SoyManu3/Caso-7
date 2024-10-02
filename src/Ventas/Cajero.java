@@ -1,34 +1,38 @@
-public class Cajero extends Empleados {
-    private String nombre;
-    private Caja[] cajasAcceso;
+package Ventas;
 
-    public Cajero(String nombre, Caja[] cajasAcceso) {
-        this.nombre = nombre;
-        this.cajasAcceso = cajasAcceso;
-    }
+import java.util.ArrayList;
 
-    public String getNombre() {
-        return nombre;
-    }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+
+public class Cajero {
+
    
+    private ArrayList<Empleado> cajeros = new ArrayList<Empleado>();
 
-    public Caja[] getCajasAcceso() {
-        return cajasAcceso;
+
+
+
+ 
+        public ArrayList<Empleado> getCajeros() {
+        return cajeros;
+          }
+
+    public void setCajeros(ArrayList<Empleado> cajeros) {
+        this.cajeros = cajeros;
+    }
+    
+    
+    public Empleado busquedaExist(String cont,String nom){
+        Empleado em=null;
+        for (int i = 0; i < cajeros.size(); i++) {
+            if (cajeros.get(i).getPassword().equals(cont)&&cajeros.get(i).getNombre().equals(nom)) {
+              em=cajeros.get(i);  
+              break;
+            }
+        }
+     return em;
     }
 
-    public void setCajasAcceso(Caja[] cajasAcceso) {
-        this.cajasAcceso = cajasAcceso;
-    }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
