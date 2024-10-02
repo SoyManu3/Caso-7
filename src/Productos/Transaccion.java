@@ -11,18 +11,18 @@ import java.util.ArrayList;
  * @author USER
  */
 public class Transaccion {
-      private ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+          protected ArrayList<Producto> productosTransaccion = new ArrayList<Producto>();
 
     
      public void añadir(Producto prod){
-         listaProductos.add(prod);
+         productosTransaccion.add(prod);
      }
      
      public String toString(){
          String lista = "";
          
-         for (int i = 0; i < listaProductos.size(); i++) {
-             lista = lista + listaProductos.get(i).getNombre() + " -- " + listaProductos.get(i).getPrecio() + " -- " + listaProductos.get(i).getCantidad()  + "\n";
+         for (int i = 0; i < productosTransaccion.size(); i++) {
+             lista = lista + productosTransaccion.get(i).getNombre() + " -- " + productosTransaccion.get(i).getPrecio() + " -- " + productosTransaccion.get(i).getCantidad()  + "\n";
          }
          
          return lista;
@@ -31,8 +31,8 @@ public class Transaccion {
      public float precioTotal(){
          float precio = 0;
          
-         for (int i = 0; i < listaProductos.size(); i++) {
-             precio = precio + listaProductos.get(i).getPrecio();
+         for (int i = 0; i < productosTransaccion.size(); i++) {
+             precio = precio + productosTransaccion.get(i).getPrecio();
          }
          
          return precio;

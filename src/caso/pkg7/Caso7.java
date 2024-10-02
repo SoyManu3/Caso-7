@@ -34,6 +34,7 @@ public class Caso7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //provedores
         Provedor provedor1 = new Provedor("Proveedor A", "001");
         Provedor provedor2 = new Provedor("Proveedor B", "002");
         Provedor provedor3 = new Provedor("Proveedor C", "003");
@@ -59,8 +60,8 @@ public class Caso7 {
         do {
             System.out.println("===== Menú Principal =====");
             System.out.println("1. Hacer Pedido");
-            System.out.println("2. Registrar Venta");
-            System.out.println("3. Salir");
+            System.out.println("2. Confirmar Peididos");
+            System.out.println("3. ");
             System.out.print("Elige una opción: ");
             option = scanner.nextInt();
 
@@ -69,17 +70,38 @@ public class Caso7 {
                     Pedido p = new Pedido();
                     pedidos.add(p);
                     System.out.println(imprimir(inventario));
+                    do{
+                    
+                    System.out.println("Elige el producto");
                     prod = scanner.nextInt();
-                    cant = scanner.nextInt();
+                    
                       
+                    if ((prod > 0 && prod <= inventario.size())) {
+                        System.out.println("Elige la cantidad");
+                        cant = scanner.nextInt();
+                        pedidos.get(pedidos.size() - 1 ).elegirCantidad(inventario.get(prod-1), cant);
+                        System.out.println(pedidos.size());
+                     }
+                    
                      
-                    pedidos.get(pedidos.size() - 1 ).elegirCantidad(inventario.get(prod), cant);
-                    pedidos.get(pedidos.size() - 1 ).agregarProductosInventario(inventario);
-                      
+                    }while(prod > 0 && prod <= inventario.size());
   
-                          
+                    pedidos.get(pedidos.size() - 1 ).agregarProductosInventario(inventario);  
+                    
+                    
                     break;
+                    
+                    
+                    
                 case 2:
+                    System.out.println("\n \n");
+                    for (int i = 0; i < pedidos.size(); i++) {
+                        System.out.println("---------");
+                        System.out.println("Pedido " + (i+1));
+                        System.out.println(pedidos.get(i).toString());
+                        System.out.println("---------");
+                    }
+                    
                     
                     break;
                 case 3:
