@@ -16,29 +16,19 @@ public class NotasEntrega {
         this.banco = banco;
         this.cuentaCorriente = cuentaCorriente;
     }
+    
+    public NotasEntrega() {
+        this.banco = "Banamex";
+        this.cuentaCorriente = "1322123";
+    }
 
-
-
-
-    public float getImporteUnidad() {
-        return importeUnidad;
+     
+    public void añadirPedido(Pedido nuevoPedido) {
+        this.notasEntrega.add(nuevoPedido);
     }
 
 
-    public void setImporteUnidad(float importeUnidad) {
-        this.importeUnidad = importeUnidad;
-    }
-
-
-    public float getImporteTotal() {
-        return importeTotal;
-    }
-
-
-    public void setImporteTotal(float importeTotal) {
-        this.importeTotal = importeTotal;
-    }
-
+ 
 
     public String getBanco() {
         return banco;
@@ -57,6 +47,30 @@ public class NotasEntrega {
 
     public void setCuentaCorriente(String cuentaCorriente) {
         this.cuentaCorriente = cuentaCorriente;
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Notas de Entrega:\n");
+
+        for (Pedido pedido : notasEntrega) {
+            sb.append("Pedido:\n")
+              .append(pedido.toString())
+              .append("\n");
+        }
+
+         
+        float totalGeneral = 0;
+        for (Pedido pedido : notasEntrega) {
+            totalGeneral += pedido.precioTotal();  
+        }
+        
+        sb.append("Banco: ").append(banco).append("\n")
+          .append("Cuenta Corriente: ").append(cuentaCorriente).append("\n")
+          .append("Importe Total de Todos los Pedidos: ").append(totalGeneral).append("\n");
+
+        return sb.toString();
     }
 
 

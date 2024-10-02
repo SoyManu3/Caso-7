@@ -53,15 +53,19 @@ public class Caso7 {
 
 
         ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
+        
+        NotasEntrega nota = new NotasEntrega();
         //menu
         Scanner scanner = new Scanner(System.in);
-        int option, prod, cant;
+        int option;
 
         do {
+            int aux1 = 0, aux2 = 0;
             System.out.println("===== Menú Principal =====");
             System.out.println("1. Hacer Pedido");
             System.out.println("2. Confirmar Peididos");
-            System.out.println("3. ");
+            System.out.println("3. Notas");
+            System.out.println("3. Venta");
             System.out.print("Elige una opción: ");
             option = scanner.nextInt();
 
@@ -73,18 +77,18 @@ public class Caso7 {
                     do{
                     
                     System.out.println("Elige el producto");
-                    prod = scanner.nextInt();
+                    aux1 = scanner.nextInt();
                     
                       
-                    if ((prod > 0 && prod <= inventario.size())) {
+                    if ((aux1 > 0 && aux1 <= inventario.size())) {
                         System.out.println("Elige la cantidad");
-                        cant = scanner.nextInt();
-                        pedidos.get(pedidos.size() - 1 ).elegirCantidad(inventario.get(prod-1), cant);
-                        System.out.println(pedidos.size());
+                        aux2 = scanner.nextInt();
+                        pedidos.get(pedidos.size() - 1 ).elegirCantidad(inventario.get(aux1-1), aux2);
+                        System.out.println("\n");
                      }
                     
                      
-                    }while(prod > 0 && prod <= inventario.size());
+                    }while(aux1 > 0 && aux1 <= inventario.size());
   
                     pedidos.get(pedidos.size() - 1 ).agregarProductosInventario(inventario);  
                     
@@ -102,15 +106,25 @@ public class Caso7 {
                         System.out.println("---------");
                     }
                     
+                    System.out.println("Aprobar pedido");
+                    aux1 = scanner.nextInt();
+                    
+                    nota.añadirPedido(pedidos.get(aux1 - 1));
+                    pedidos.remove(aux1 - 1);
+                    
+                    
                     
                     break;
                 case 3:
-                    System.out.println("Saliendo del sistema...");
+                    
+                    System.out.println("Imprimiendo Notas:");
+                    System.out.println( nota.toString());
+                    
                     break;
                 default:
                     System.out.println("Opción inválida, por favor intenta de nuevo.");
             }
-        } while (option != 3);
+        } while (option != 6);
 
         scanner.close();
        
