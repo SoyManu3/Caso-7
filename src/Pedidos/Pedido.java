@@ -10,9 +10,6 @@ public class Pedido extends Transaccion{
 
    
     
-    public float calcularPrecio() {
-        return 0;
-    }
     
     
     
